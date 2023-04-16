@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body{
+  background-color: whitesmoke;
+}
+
+.clickable {
+  cursor: pointer;
+}
+.icon-row {
+  width: 2em;
+}
+.icon-folder {
+  width: 1em;
+}
+.icon-file {
+  width: 0.75em;
+}
