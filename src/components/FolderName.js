@@ -1,10 +1,11 @@
-import React, { useState, useMemo } from 'react'
+import React, { useState, useMemo, useContext } from 'react'
 import useCopy from 'use-copy'
 import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
 import Typography from '@mui/material/Typography'
 import Modal from '@mui/material/Modal'
 import { FilesViewer } from '../FilesViewer'
+import { ThemeContext } from '../App'
 
 const fs = window.require('fs')
 const pathModule = window.require('path')
@@ -33,6 +34,7 @@ const style = {
 }
 
 function FolderName(props) {
+  const { paths, setPaths } = useContext(ThemeContext)
   const [path, setPath] = useState(app.getAppPath())
 
   const files = useMemo(
@@ -56,8 +58,14 @@ function FolderName(props) {
     [path]
   )
 
-  const onBack = () => setPath(pathModule.dirname(path))
-  const onOpen = folder => setPath(pathModule.join(path, folder))
+  const onBack = () => {
+    setPath(pathModule.dirname(path))
+    setPaths({ ...paths, [props.folder]: pathModule.dirname(path) })
+  }
+  const onOpen = folder => {
+    setPath(pathModule.join(path, folder))
+    setPaths({ ...paths, [props.folder]: pathModule.join(path, folder) })
+  }
 
   const [searchString, setSearchString] = useState('')
   const filteredFiles = files.filter(s => s.name.startsWith(searchString))
@@ -81,13 +89,15 @@ function FolderName(props) {
               Folder Path
             </h1>
 
-            <p class="mt-1.5 text-sm text-gray-500 w-100">{path}</p>
+            <p class="mt-1.5 text-sm text-gray-500 w-100">
+              {paths[props.folder]}
+            </p>
           </div>
 
           <div class="mt-4 flex flex-col gap-4 sm:mt-0 sm:flex-row sm:items-center">
             <button
               onClick={copyText}
-              class="focus:outline-none inline-flex items-center justify-center gap-1.5 rounded-lg border border-gray-200 bg-white px-1 py-2 text-gray-500 transition hover:text-gray-700 focus:outline-none focus:ring"
+              class="block text-black border-2 rounded-lg bg-white-600 text-sm px-1 py-2 font-medium transition hover:bg-white-700 focus:outline-none focus:ring"
               type="button"
             >
               <span class="text-sm font-medium"> {copied && `Copied`} </span>
@@ -99,7 +109,7 @@ function FolderName(props) {
               class="block rounded-lg bg-indigo-600 text-sm px-1 py-2 font-medium text-white transition hover:bg-indigo-700 focus:outline-none focus:ring"
               type="button"
             >
-              Select Different Folder
+              Select
             </button>
           </div>
         </div>
