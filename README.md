@@ -1,3 +1,25 @@
+# Image-pair broswer and visualiser
+This is an application that visualizes image pairs from multiple folders. The image pairs we refer to are two images with the same name but in different folders. Thee application allows users to select multiple folders, and it displays all the image pairs within those folders. To ensure the application's versatility, there is the option to add more than two folders.
+### Purpose
+The purpose of this software is to open images from multiple folders and visualise them. The images are of the same name and exist in different folders, maybe due to a series of image processing like segmentation, landmark or object detection, or upscaling. This tool would allow the user to visualise such images. 
+### Project Scope
+The system will consist of a software application that can run on Windows, macOS, and Linux. The application will be responsible for processing directories and images.
+### Project Scope
+The system will consist of a software application that can run on Windows, macOS, and Linux. The application will be responsible for processing directories and images.
+# Tech-Stacks
+1.   ### Electron
+     - Electron is a popular framework for building cross-platform desktop applications using web technologies such as HTML, CSS, and JavaScript.
+     - Basically a framework that provides the runtime environment for the application.
+     - Electron's versatility, flexibility, and ease of use make it a popular choice for developers seeking to create robust, cross-platform desktop applications.
+2.   ### React.js
+     - ReactJS is an open-source JavaScript library used for building user interfaces
+     -  ReactJS has a large ecosystem of libraries and tools that make it easy to build complex applications, such as Redux for state management and React Router for routing.
+3.   ### Tailwind-CSS
+     - Tailwind CSS is a popular utility-first CSS framework that allows developers to rapidly build responsive and customizable user interfaces. 
+     - Tailwind CSS is highly customizable, allowing developers to easily modify the default design system and create their own custom utility classes.
+     - The framework is lightweight and optimized for performance, with a focus on reducing the size of the final CSS file.
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
