@@ -6,18 +6,19 @@ import ThreeImagesPage from './ThreeImagesPage'
 import FourImagesPage from './FourImagesPage'
 import Home from './Home'
 export const ThemeContext = createContext()
+const { app } = window.require('@electron/remote')
 
 function App() {
   const [paths, setPaths] = useState({
-    path21: '',
-    path22: '',
-    path31: '',
-    path32: '',
-    path33: '',
-    path41: '',
-    path42: '',
-    path43: '',
-    path44: ''
+    path21: app.getAppPath(),
+    path22: app.getAppPath(),
+    path31: app.getAppPath(),
+    path32: app.getAppPath(),
+    path33: app.getAppPath(),
+    path41: app.getAppPath(),
+    path42: app.getAppPath(),
+    path43: app.getAppPath(),
+    path44: app.getAppPath()
   })
   return (
     <>
