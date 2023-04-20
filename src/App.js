@@ -3,6 +3,7 @@ import { FilesViewer } from './FilesViewer'
 import { MemoryRouter as Router, Routes, Route } from 'react-router-dom'
 import TwoImagesPage from './TwoImagesPage'
 import ThreeImagesPage from './ThreeImagesPage'
+import FourImagesPage from './FourImagesPage'
 import Home from './Home'
 export const ThemeContext = createContext()
 
@@ -12,7 +13,11 @@ function App() {
     path22: '',
     path31: '',
     path32: '',
-    path33: ''
+    path33: '',
+    path41: '',
+    path42: '',
+    path43: '',
+    path44: ''
   })
   return (
     <>
@@ -27,6 +32,7 @@ function App() {
             <Route path="/" element={<Home />}></Route>
             <Route path="/twoimages" element={<TwoImagesPage />} />
             <Route path="/threeimages" element={<ThreeImagesPage />} />
+            <Route path="/fourimages" element={<FourImagesPage />} />
           </Routes>
         </Router>
       </ThemeContext.Provider>
