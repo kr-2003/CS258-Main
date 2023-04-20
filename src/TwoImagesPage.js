@@ -9,22 +9,30 @@ import { ThemeContext } from './App'
 const fs = window.require('fs')
 const pathModule = window.require('path')
 
-
 function TwoImagesPage() {
   const { paths, setPaths } = useContext(ThemeContext)
   const [images, setImages] = useState([])
+  const acceptedImageTypes = ['gif', 'jpeg', 'png', 'jpg', 'svg']
   var mp = new Map()
   const clickHandler = () => {
     fs.readdirSync(paths['path21']).map(file => {
       const stats = fs.statSync(pathModule.join(paths['path21'], file))
-      if (!stats.isDirectory()) {
+      const arr = file.split('.').pop()
+      if (!stats.isDirectory() && acceptedImageTypes.includes(arr)) {
         if (mp.has(file)) mp.set(file, mp.get(file) + 1)
         else mp.set(file, 1)
       }
     })
     fs.readdirSync(paths['path22']).map(file => {
       const stats = fs.statSync(pathModule.join(paths['path22'], file))
-      if (!stats.isDirectory()) {
+      const file1 = new File(
+        [pathModule.join(paths['path22'], file)],
+        pathModule.join(paths['path22'], file)
+      )
+      const reader = new FileReader()
+      console.log(file1)
+      const arr = file.split('.').pop()
+      if (!stats.isDirectory() && acceptedImageTypes.includes(arr)) {
         if (mp.has(file)) mp.set(file, mp.get(file) + 1)
         else mp.set(file, 1)
       }

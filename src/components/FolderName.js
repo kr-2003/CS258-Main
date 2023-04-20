@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/alt-text */
 import React, { useState, useMemo, useContext } from 'react'
 import useCopy from 'use-copy'
 import Box from '@mui/material/Box'
@@ -32,7 +33,8 @@ const style = {
   border: '1px',
   borderRadius: '25px',
   boxShadow: 24,
-  overflowY: 'scroll'
+  overflowY: 'scroll',
+  outline: 'none'
 }
 
 function FolderName(props) {
@@ -83,7 +85,10 @@ function FolderName(props) {
   }
 
   return (
-    <header aria-label="Page Header" class="bg-gray-700 border-gray-200 border-8 rounded-[25px]">
+    <header
+      aria-label="Page Header"
+      class="bg-gray-700 border-gray-200 border-8 rounded-[25px]"
+    >
       <div class="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
         <div class="sm:flex sm:items-center sm:justify-between">
           <div class="text-center sm:text-left">
@@ -117,6 +122,7 @@ function FolderName(props) {
         </div>
       </div>
       <Modal
+        style={{ outline: 'none' }}
         open={open}
         onClose={handleClose}
         aria-labelledby="modal-modal-title"
@@ -124,9 +130,20 @@ function FolderName(props) {
         className="focus:outline-none"
       >
         <Box sx={style}>
-          <div className="container bg-gray-200 border-[16px] rounded-[25px] border-gray-600 py-5 px-5 overflow-y-scroll h-[100%] text-black">
-            <div className="pb-2 w-full mx-auto flex justify-between gap-8" >
-              <h2 className="font-semibold text-[18px] leading-[30px] text-gray-900">Browse Folders</h2>
+          <div
+            style={{ outline: 'none' }}
+            className="container bg-gray-200 border-[16px] rounded-[25px] border-gray-600 py-5 px-5 overflow-y-scroll h-[100%] text-black"
+          >
+            <div className="pb-2 w-full mx-auto flex justify-between gap-8">
+              <img
+                className="h-7 w-7 absolute top-5 right-5 hover:cursor-pointer"
+                src="/icon/remove.png"
+                onClick={handleClose}
+              ></img>
+
+              <h2 className="font-semibold text-[18px] leading-[30px] text-gray-900">
+                Browse Folders
+              </h2>
             </div>
             <h4>{path}</h4>
             <FilesViewer
