@@ -28,7 +28,9 @@ const style = {
   transform: 'translate(-50%, -50%)',
   width: 550,
   height: '60%',
-  backgroundColor: 'black',
+  backgroundColor: 'transparent',
+  border: '1px',
+  borderRadius: '25px',
   boxShadow: 24,
   overflowY: 'scroll'
 }
@@ -81,15 +83,15 @@ function FolderName(props) {
   }
 
   return (
-    <header aria-label="Page Header" class="bg-gray-50">
+    <header aria-label="Page Header" class="bg-gray-700 border-gray-200 border-8 rounded-[25px]">
       <div class="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
         <div class="sm:flex sm:items-center sm:justify-between">
           <div class="text-center sm:text-left">
-            <h1 class="text-2xl font-bold text-gray-900 sm:text-3xl">
+            <h1 class="text-2xl font-bold text-white sm:text-3xl">
               Folder Path
             </h1>
 
-            <p class="mt-1.5 text-sm text-gray-500 w-100">
+            <p class="mt-1.5 text-sm text-gray-300 w-100">
               {paths[props.folder]}
             </p>
           </div>
@@ -97,7 +99,7 @@ function FolderName(props) {
           <div class="mt-4 flex flex-col gap-4 sm:mt-0 sm:flex-row sm:items-center">
             <button
               onClick={copyText}
-              class="block text-black border-2 rounded-lg bg-white-600 text-sm px-1 py-2 font-medium transition hover:bg-white-700 focus:outline-none focus:ring"
+              class="block text-black border-white border-2 rounded-lg bg-gray-200 text-sm px-3.5 py-2.5 font-medium transition hover:bg-emerald-400 hover:border-white focus:outline-none focus:ring"
               type="button"
             >
               <span class="text-sm font-medium"> {copied && `Copied`} </span>
@@ -106,7 +108,7 @@ function FolderName(props) {
 
             <button
               onClick={handleOpen}
-              class="block rounded-lg bg-indigo-600 text-sm px-1 py-2 font-medium text-white transition hover:bg-indigo-700 focus:outline-none focus:ring"
+              class="block rounded-lg bg-cyan-600 text-sm border-white border-2 px-3.5 py-2.5 font-medium text-white transition hover:bg-cyan-700 focus:outline-none focus:ring"
               type="button"
             >
               Select
@@ -122,7 +124,10 @@ function FolderName(props) {
         className="focus:outline-none"
       >
         <Box sx={style}>
-          <div className="container bg-white overflow-y-scroll h-[100%] text-black">
+          <div className="container bg-gray-200 border-[16px] rounded-[25px] border-gray-600 py-5 px-5 overflow-y-scroll h-[100%] text-black">
+            <div className="pb-2 w-full mx-auto flex justify-between gap-8" >
+              <h2 className="font-semibold text-[18px] leading-[30px] text-gray-900">Browse Folders</h2>
+            </div>
             <h4>{path}</h4>
             <FilesViewer
               files={filteredFiles}
