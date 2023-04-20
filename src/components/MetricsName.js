@@ -1,8 +1,5 @@
 import React, { useState, useMemo, useContext } from 'react'
-import useCopy from 'use-copy'
 import Box from '@mui/material/Box'
-import Button from '@mui/material/Button'
-import Typography from '@mui/material/Typography'
 import Modal from '@mui/material/Modal'
 import { FilesViewer } from '../FilesViewer'
 import { ThemeContext } from '../App'
@@ -45,6 +42,7 @@ function FolderName(props) {
         .readdirSync(path)
         .map(file => {
           const stats = fs.statSync(pathModule.join(path, file))
+        //   console.log(pathModule.join(path, file))
           return {
             name: file,
             size: stats.isFile() ? formatSize(stats.size ?? 0) : null,
@@ -67,6 +65,11 @@ function FolderName(props) {
   const onOpen = folder => {
     setPath(pathModule.join(path, folder))
     setPaths({ ...paths, [props.folder]: pathModule.join(path, folder) })
+    // console.log(paths[props.folder])
+  }
+  const onClickFile = folder => {
+    paths[props.folder]=pathModule.join(path, folder)
+    console.log(paths[props.folder])
   }
 
   const [searchString, setSearchString] = useState('')
@@ -74,48 +77,17 @@ function FolderName(props) {
   const [open, setOpen] = React.useState(false)
   const handleOpen = () => setOpen(true)
   const handleClose = () => setOpen(false)
-  const [copied, copy, setCopied] = useCopy(path)
-  const copyText = () => {
-    copy()
-    setTimeout(() => {
-      setCopied(false)
-    }, 3000)
-  }
+  
 
   return (
-    <header aria-label="Page Header" class="bg-gray-700 border-gray-200 border-8 rounded-[25px]">
-      <div class="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
-        <div class="sm:flex sm:items-center sm:justify-between">
-          <div class="text-center sm:text-left">
-            <h1 class="text-2xl font-bold text-white sm:text-3xl">
-              Folder Path
-            </h1>
-
-            <p class="mt-1.5 text-sm text-gray-300 w-100">
-              {paths[props.folder]}
-            </p>
-          </div>
-
-          <div class="mt-4 flex flex-col gap-4 sm:mt-0 sm:flex-row sm:items-center">
-            <button
-              onClick={copyText}
-              class="block text-black border-white border-2 rounded-lg bg-gray-200 text-sm px-3.5 py-2.5 font-medium transition hover:bg-emerald-400 hover:border-white focus:outline-none focus:ring"
-              type="button"
-            >
-              <span class="text-sm font-medium"> {copied && `Copied`} </span>
-              <span class="text-sm font-medium"> {!copied && `Copy`} </span>
-            </button>
-
-            <button
-              onClick={handleOpen}
-              class="block rounded-lg bg-cyan-600 text-sm border-white border-2 px-3.5 py-2.5 font-medium text-white transition hover:bg-cyan-700 focus:outline-none focus:ring"
-              type="button"
-            >
-              Select
-            </button>
-          </div>
-        </div>
-      </div>
+    <header>
+        <button
+            onClick={handleOpen}
+            class="block text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-emerald-500 dark:text-white dark:border-gray-300 dark:hover:bg-emerald-700 border-2  dark:focus:ring-gray-700"
+            type="button"
+        >
+            Metrics File
+        </button>
       <Modal
         open={open}
         onClose={handleClose}
@@ -133,7 +105,7 @@ function FolderName(props) {
               files={filteredFiles}
               onBack={onBack}
               onOpen={onOpen}
-              onClickFile={()=>{}}
+              onClickFile={onClickFile}
             />
           </div>
         </Box>

@@ -17,7 +17,8 @@ function App() {
     path41: '',
     path42: '',
     path43: '',
-    path44: ''
+    path44: '',
+    metrics: ''
   })
   return (
     <>
