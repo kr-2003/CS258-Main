@@ -6,12 +6,13 @@ import Papa from 'papaparse'
 import TwoImg from './components/TwoImg'
 import { spawn } from 'child_process'
 import { ThemeContext } from './App'
+import { motion } from 'framer-motion'
 const fs = window.require('fs')
 const pathModule = window.require('path')
 
 const background = {
-  Dark: "bg-gray-900 text-white",
-  Light: "bg-white text-gray-900"
+  Dark: 'bg-gray-900 text-white',
+  Light: 'bg-white text-gray-900'
 }
 
 function TwoImagesPage() {
@@ -76,13 +77,22 @@ function TwoImagesPage() {
 
   return (
     <>
-      <div className="max-h-[100%] overflow-hidden">
-        <div className={`bg-gray-900 inline-block w-full ${background[paths["mode"]]}`}>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5 }}
+        className="max-h-[100%] overflow-hidden"
+      >
+        <div
+          className={`bg-gray-900 inline-block w-full ${
+            background[paths['mode']]
+          }`}
+        >
           <div className="sm:px-16 px-6">
             <Navbar />
           </div>
-          <div className={`bg-gray-900 w-full ${background[paths["mode"]]}`}>
-            <div className={`bg-gray-900 w-full ${background[paths["mode"]]}`}>
+          <div className={`bg-gray-900 w-full ${background[paths['mode']]}`}>
+            <div className={`bg-gray-900 w-full ${background[paths['mode']]}`}>
               <div className="sticky top-0 grid grid-cols-2 gap-2 m-2 w-100 mb-5">
                 <FolderName folder="path21"></FolderName>
                 <FolderName folder="path22"></FolderName>
@@ -109,7 +119,7 @@ function TwoImagesPage() {
             })}
           </div>
         </div>
-      </div>
+      </motion.div>
     </>
   )
 }
