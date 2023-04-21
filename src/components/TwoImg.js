@@ -3,7 +3,7 @@ import Card from './Card'
 
 function TwoImg(props) {
   return (
-    <div className="grid grid-cols-2 w-[100vw]">
+    <div className="grid grid-cols-2 w-[100vw] scrollable">
       <Card image={`file:///` + props.images[0]}></Card>
       <Card image={`file:///` + props.images[1]}></Card>
     </div>

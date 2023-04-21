@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react'
 import Navbar from './components/Navbar'
 import FolderName from './components/FolderName'
 import MetricsName from './components/MetricsName'
-import Papa from "papaparse";
+import Papa from 'papaparse'
 import TwoImg from './components/TwoImg'
 import { spawn } from 'child_process'
 import { ThemeContext } from './App'
@@ -38,14 +38,14 @@ function TwoImagesPage() {
       }
     })
     let newImages = []
-    if(paths["metrics"]!=''){
-      fs.readFile(paths["metrics"], 'utf8', function (err, data) {
-          if (err) {
-              throw err;
-          }
-          Papa.parse(data, {
+    if (paths['metrics'] != '') {
+      fs.readFile(paths['metrics'], 'utf8', function (err, data) {
+        if (err) {
+          throw err
+        }
+        Papa.parse(data, {
           step: function (row) {
-            if(row.data==""){
+            if (row.data == '') {
               setImages(newImages)
               return
             }
@@ -54,9 +54,9 @@ function TwoImagesPage() {
               pathModule.join(paths['path22'], row.data[1])
             ])
           }
-        });
-      });
-    }else{
+        })
+      })
+    } else {
       for (let [key, value] of mp) {
         if (value === 2) {
           newImages.push([
@@ -68,40 +68,44 @@ function TwoImagesPage() {
       setImages(newImages)
     }
   }
-  return (<>
-  <div className='bg-gray-900'>
-    <div className='sm:px-16 px-6'>
-      <Navbar />
-    </div>
-    <div className="h-[100%] bg-gray-900">
-      <div className='static top-0 bg-gray-900 z-1000'>
-        <div className="grid grid-cols-2 gap-2 m-2 w-100 mb-5">
-          <FolderName folder="path21"></FolderName>
-          <FolderName folder="path22"></FolderName>
-        </div>
-        <div className="grid grid-cols-2 gap-2 m-2 w-100 mb-5">
-          <div className="w-100 flex items-center pb-1 justify-center">
-            <button
-              onClick={clickHandler}
-              class="block text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-emerald-500 dark:text-white dark:border-gray-300 dark:hover:bg-emerald-700 border-2  dark:focus:ring-gray-700"
-              type="button"
-            >
-              Search for Images
-            </button>
+
+  return (
+    <>
+      <div className="max-h-[100%] overflow-hidden">
+        <div className="bg-gray-900 inline-block w-full">
+          <div className="sm:px-16 px-6">
+            <Navbar />
           </div>
-          <div className="w-100 flex items-center pb-1 justify-center">
-            <MetricsName folder="metrics"></MetricsName>
+          <div className="bg-gray-900 w-full">
+            <div className="bg-gray-900 w-full">
+              <div className="sticky top-0 grid grid-cols-2 gap-2 m-2 w-100 mb-5">
+                <FolderName folder="path21"></FolderName>
+                <FolderName folder="path22"></FolderName>
+              </div>
+              <div className="grid grid-cols-2 gap-2 m-2 w-100 mb-5">
+                <div className="w-100 flex items-center pb-1 justify-center">
+                  <button
+                    onClick={clickHandler}
+                    class="block text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-emerald-500 dark:text-white dark:border-gray-300 dark:hover:bg-emerald-700 border-2  dark:focus:ring-gray-700"
+                    type="button"
+                  >
+                    Search for Images
+                  </button>
+                </div>
+                <div className="w-100 flex items-center pb-1 justify-center">
+                  <MetricsName folder="metrics"></MetricsName>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="scrollable overflow-y-scroll bg-gray-900">
+            {images.map(arr => {
+              return <TwoImg images={arr}></TwoImg>
+            })}
           </div>
         </div>
       </div>
-      <div className="overflow-y-scroll">
-        {images.map(arr => {
-          return <TwoImg images={arr}></TwoImg>
-        })}
-      </div>
-    </div>
-  </div>
-  </>
+    </>
   )
 }
 

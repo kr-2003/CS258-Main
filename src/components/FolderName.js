@@ -39,7 +39,7 @@ const style = {
 
 function FolderName(props) {
   const { paths, setPaths } = useContext(ThemeContext)
-  const [path, setPath] = useState(app.getAppPath())
+  const [path, setPath] = useState('/Users')
 
   const files = useMemo(
     () =>
@@ -87,7 +87,7 @@ function FolderName(props) {
   return (
     <header
       aria-label="Page Header"
-      class="bg-gray-700 border-gray-200 border-8 rounded-[25px]"
+      class="sticky top-0 block bg-gray-700 border-gray-200 border-8 rounded-[25px] z-[999]"
     >
       <div class="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
         <div class="sm:flex sm:items-center sm:justify-between md:flex md:justify-between md:items-center">
