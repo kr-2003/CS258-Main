@@ -8,6 +8,10 @@ import { spawn } from 'child_process'
 import { ThemeContext } from './App'
 const fs = window.require('fs')
 const pathModule = window.require('path')
+const background = {
+    Dark: "bg-gray-900 text-white",
+    Light: "bg-white text-gray-900"
+}
 
 function ThreeImagesPage() {
   const { paths, setPaths } = useContext(ThemeContext)
@@ -69,12 +73,12 @@ function ThreeImagesPage() {
     }
   }
   return ( 
-      <div className='bg-gray-900'>
-    <div className='sm:px-16 px-6 bg-gray-900'>
+      <div className={`bg-gray-900 ${background[paths["mode"]]}`}>
+    <div className={`sm:px-16 px-6 bg-gray-900 ${background[paths["mode"]]}`}>
         <Navbar />
       </div>
     <div className="h-[100%] text-center">
-      <div className='sticky top-0 bg-gray-900'>
+      <div className={`sticky top-0 bg-gray-900 ${background[paths["mode"]]}`}>
       <div className="grid grid-cols-3 gap-2 m-2 w-100 mb-5">
         <FolderName folder="path31"></FolderName>
         <FolderName folder="path32"></FolderName>
