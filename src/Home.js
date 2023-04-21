@@ -1,18 +1,28 @@
-import React from 'react'
+import React, { useState, useContext, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import Navbar from './components/Navbar'
-
+import { ThemeContext } from './App'
+const background = {
+  Dark: "bg-gray-900 text-white",
+  Light: "bg-white text-gray-900"
+}
 function Home() {
+  const { paths, setPaths } = useContext(ThemeContext)
   const folderInput = e => {
     console.log('Hello')
     console.log(e)
   }
+  // useEffect(() => {
+  //   console.log(paths["mode"])
+  // })
+
+
   return (
     <>
-      <div className='sm:px-16 px-6 bg-gray-900'>
+      <div className={`sm:px-16 px-6 ${background[paths["mode"]]}`}>
         <Navbar />
       </div>
-      <section class="text-white bg-gray-900 body-font">
+      <section class={`text-white bg-gray-900 body-font ${background[paths["mode"]]}`}>
         <div class="container mx-auto flex px-5 py-12 items-center justify-center flex-col">
           <img src="/cover-2.png" alt="cover" className="w-full object-cover sm:h-[450px] h-[320px] rounded-tl-[140px] z-[10] mb-10 relative"></img>
           {/* <img
@@ -21,10 +31,10 @@ function Home() {
           src="https://dummyimage.com/720x600"
         /> */}
           <div class="text-center lg:w-2/3 w-full">
-            <h1 class="title-font sm:text-5xl text-4xl mb-4 font-medium text-white">
+            <h1 class={`title-font sm:text-5xl text-4xl mb-4 font-medium ${background[paths["mode"]]}`}>
               Pairwise Image Visualizer
             </h1>
-            <p class="mb-8 leading-relaxed text-gray-300">
+            <p class={`mb-8 leading-relaxed text-gray-300 ${background[paths["mode"]]}`}>
               Meggings kinfolk echo park stumptown DIY, kale chips beard jianbing
               tousled. Chambray dreamcatcher trust fund, kitsch vice godard
               disrupt ramps hexagon mustache umami snackwave tilde chillwave ugh.

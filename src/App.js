@@ -19,7 +19,8 @@ function App() {
     path42: '/Users',
     path43: '/Users',
     path44: '/Users',
-    metrics: ''
+    metrics: '',
+    mode: "Dark"
   })
   return (
     <>
