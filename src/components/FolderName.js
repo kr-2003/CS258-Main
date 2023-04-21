@@ -90,15 +90,14 @@ function FolderName(props) {
       class="bg-gray-700 border-gray-200 border-8 rounded-[25px]"
     >
       <div class="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
-        <div class="sm:flex sm:items-center sm:justify-between">
+        <div class="sm:flex sm:items-center sm:justify-between md:flex md:justify-between md:items-center">
           <div class="text-center sm:text-left">
             <h1 class="text-2xl font-bold text-white sm:text-3xl">
               Folder Path
             </h1>
-
-            <p class="mt-1.5 text-sm text-gray-300 w-100">
+            <h6 class="mt-1.5 flex text-sm flex-wrap w-10 text-gray-300">
               {paths[props.folder]}
-            </p>
+            </h6>
           </div>
 
           <div class="mt-4 flex flex-col gap-4 sm:mt-0 sm:flex-row sm:items-center">

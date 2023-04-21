@@ -1,4 +1,4 @@
-const { app, BrowserWindow, ipcMain } = require('electron')
+const { app, BrowserWindow, Menu, ipcMain } = require('electron')
 const { dialog } = require('electron')
 const path = require('path')
 const isDev = require('electron-is-dev')
@@ -10,20 +10,43 @@ require('@electron/remote/main').initialize()
 function createWindow() {
   // Create the browser window.
   const win = new BrowserWindow({
-    fullscreen: true,
+    // fullscreen: true,
+    width: 800,
+    height: 600,
     webPreferences: {
       nodeIntegration: true,
       enableRemoteModule: true,
       webSecurity: false
-    }
-  })
+    },
+    // frame: false
+  });
+
+  // const menuTemplate = [
+  //   {
+  //     label: 'Visualizer',
+  //     submenu: [
+  //       {
+  //         role: 'undo'
+  //       },
+  //       {
+  //         role: 'cut'
+  //       },
+  //       {
+  //         role: 'close'
+  //       }
+  //     ]
+  //   }
+  // ];
+  // const menu = Menu.buildFromTemplate(menuTemplate)
+  // Menu.setApplicationMenu(menu)
 
   win.loadURL(
     isDev
       ? 'http://localhost:3000'
       : `file://${path.join(__dirname, '../build/index.html')}`
   )
-}
+};
+
 
 app.on('ready', function () {
   createWindow()

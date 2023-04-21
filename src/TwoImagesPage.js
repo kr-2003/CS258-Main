@@ -74,7 +74,7 @@ function TwoImagesPage() {
       <Navbar />
     </div>
     <div className="h-[100%] bg-gray-900">
-      <div className='sticky top-0 bg-gray-900'>
+      <div className='static top-0 bg-gray-900 z-1000'>
         <div className="grid grid-cols-2 gap-2 m-2 w-100 mb-5">
           <FolderName folder="path21"></FolderName>
           <FolderName folder="path22"></FolderName>
