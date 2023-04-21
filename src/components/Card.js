@@ -32,17 +32,16 @@ function Card(props) {
       <img
         alt="Art"
         src={props.image}
-        class="h-64 w-full object-cover sm:h-80 lg:h-96 rounded-lg hover:scale-[1.05] transform 
-        transition duration-500"
+        class="h-64 w-full object-cover sm:h-80 lg:h-96 rounded-lg"
       />
-      <div class="absolute top-0 left-0 w-full h-0 flex flex-col justify-center items-center bg-gray-700 opacity-0 group-hover:h-full group-hover:opacity-80 duration-500">
-        <a
+      <div class="absolute top-0 left-0 w-full h-0 flex flex-col justify-center items-center bg-gray-700 opacity-0 duration-500">
+        {/* <a
           class="text-2xl border-2 border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-[100px] text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700"
           href="#"
           onClick={handleOpen}
         >
           Click to see details!
-        </a>
+        </a> */}
         <Modal
           style={{ outline: 'none' }}
           open={open}

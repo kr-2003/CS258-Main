@@ -68,6 +68,7 @@ function TwoImagesPage() {
       setImages(newImages)
     }
   }
+
   return (
     <>
       <div className="max-h-[100%] overflow-hidden">

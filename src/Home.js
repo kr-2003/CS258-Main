@@ -12,7 +12,7 @@ function Home() {
       <div className='sm:px-16 px-6 bg-gray-900'>
         <Navbar />
       </div>
-      <section class="text-white bg-gray-900 body-font h-[100vh]">
+      <section class="text-white bg-gray-900 body-font">
         <div class="container mx-auto flex px-5 py-12 items-center justify-center flex-col">
           <img src="/cover-2.png" alt="cover" className="w-full object-cover sm:h-[450px] h-[320px] rounded-tl-[140px] z-[10] mb-10 relative"></img>
           {/* <img
