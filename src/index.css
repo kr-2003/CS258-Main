@@ -1,9 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+html{
+  -ms-overflow-style: none;
+}
 
 body{
   background-color: whitesmoke;
+  /* overflow: hidden; */
 }
 
 .clickable {
@@ -17,4 +21,8 @@ body{
 }
 .icon-file {
   width: 0.75em;
+}
+.scrollable{
+  overflow-y: scroll !important;
+  overflow: scroll !important;
 }
