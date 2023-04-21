@@ -134,11 +134,10 @@ function FolderName(props) {
             className="container bg-gray-200 border-[16px] rounded-[25px] border-gray-600 py-5 px-5 overflow-y-scroll h-[100%] text-black"
           >
             <div className="pb-2 w-full mx-auto flex justify-between gap-8">
-              <img
-                className="h-7 w-7 absolute top-5 right-5 hover:cursor-pointer"
-                src="/icon/remove.png"
+              <div
+                className="cross-btn h-7 w-7 absolute top-5 right-5 hover:cursor-pointer"
                 onClick={handleClose}
-              ></img>
+              ></div>
 
               <h2 className="font-semibold text-[18px] leading-[30px] text-gray-900">
                 Browse Folders

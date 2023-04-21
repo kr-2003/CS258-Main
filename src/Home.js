@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import { ThemeContext } from './App'
 const background = {
-  Dark: "bg-gray-900 text-white",
-  Light: "bg-white text-gray-900"
+  Dark: 'bg-gray-900 text-white',
+  Light: 'bg-white text-gray-900'
 }
 function Home() {
   const { paths, setPaths } = useContext(ThemeContext)
@@ -16,40 +16,38 @@ function Home() {
   //   console.log(paths["mode"])
   // })
 
-
   return (
     <>
-
-      <div className={`sm:px-16 px-6 ${background[paths["mode"]]}`}>
+      <div className={`sm:px-16 px-6 ${background[paths['mode']]}`}>
         <Navbar />
       </div>
-      <section class={`text-white bg-gray-900 body-font ${background[paths["mode"]]}`}>
+      <section
+        class={`text-white bg-gray-900 body-font ${background[paths['mode']]}`}
+      >
         <div class="container mx-auto flex px-5 py-12 items-center justify-center flex-col">
-          <img
-            src="/cover-2.png"
-            alt="cover"
-            className="w-full object-cover sm:h-[450px] h-[320px] rounded-tl-[140px] z-[10] mb-10 relative"
-          ></img>
-          {/* <img
-          class="lg:w-2/6 md:w-3/6 w-5/6 mb-10 object-cover object-center rounded"
-          alt="hero"
-          src="https://dummyimage.com/720x600"
-        /> */}
-
-          <img src="/cover-2.png" alt="cover" className="w-full object-cover sm:h-[450px] h-[320px] rounded-tl-[140px] z-[10] mb-10 relative"></img>
+          <div
+            className="main-photo w-full object-cover sm:h-[450px] h-[320px] rounded-tl-[140px] z-[10] mb-10 relative"
+          ></div>
           <div class="text-center lg:w-2/3 w-full">
-            <h1 class={`title-font sm:text-5xl text-4xl mb-4 font-medium ${background[paths["mode"]]}`}>
+            <h1
+              class={`title-font sm:text-5xl text-4xl mb-4 font-medium ${
+                background[paths['mode']]
+              }`}
+            >
               Pairwise Image Visualizer
             </h1>
 
-            <p class="mb-8 leading-relaxed text-gray-300">
+            <p
+              class={`mb-8 leading-relaxed text-gray-300 ${
+                background[paths['mode']]
+              }`}
+            >
               This is a responsive application that visualizes image pairs from
               multiple folders. The image pairs we refer to are two images with
               the same name but in different folders. Thee application allows
               users to select multiple folders, and it displays all the image
               pairs within those folders. To ensure the application's
               versatility, there is the option to add more than two folders.
-
             </p>
             <div class="flex justify-center gap-5">
               <Link

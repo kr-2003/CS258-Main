@@ -26,3 +26,15 @@ body{
   overflow-y: scroll !important;
   overflow: scroll !important;
 }
+
+.main-photo{
+  background-image: url('./cover-2.png');
+  object-fit: contain;
+  background-size: cover;
+}
+
+.cross-btn{
+  background-image: url('./remove.png');
+  object-fit: contain;
+  background-size: cover;
+}
