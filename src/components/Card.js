@@ -33,15 +33,9 @@ function Card(props) {
         alt="Art"
         src={props.image}
         class="h-64 w-full object-cover sm:h-80 lg:h-96 rounded-lg"
+        onClick={handleOpen}
       />
       <div class="absolute top-0 left-0 w-full h-0 flex flex-col justify-center items-center bg-gray-700 opacity-0 duration-500">
-        {/* <a
-          class="text-2xl border-2 border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-[100px] text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700"
-          href="#"
-          onClick={handleOpen}
-        >
-          Click to see details!
-        </a> */}
         <Modal
           style={{ outline: 'none' }}
           open={open}
@@ -53,13 +47,15 @@ function Card(props) {
           <Box sx={style}>
             <div
               style={{ outline: 'none' }}
-              className="container bg-gray-200 border-[16px] rounded-[25px] border-gray-600 py-5 px-5 overflow-y-scroll h-[100%] text-black"
+              className="w-[100%] container bg-gray-200 border-[16px] rounded-[25px] border-gray-600 py-5 px-5 overflow-y-scroll h-[100%] text-black"
             >
-              <h1 class="text-2xl font-bold text-black sm:text-3xl">
+              <h1 class="text-2xl text-center font-bold text-black sm:text-3xl">
                 Image Path
               </h1>
-              <h1>{props.image.slice(8)}</h1>
-              <img alt="Art" src={props.image} />
+              <h1 className="text-center">{props.image.slice(8)}</h1>
+              <div className="flex justify-center items-center w-100 h-100">
+                <img alt="Art" src={props.image} className="object-contain" />
+              </div>
             </div>
           </Box>
         </Modal>
