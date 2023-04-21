@@ -25,11 +25,6 @@ function Home() {
       <section class={`text-white bg-gray-900 body-font ${background[paths["mode"]]}`}>
         <div class="container mx-auto flex px-5 py-12 items-center justify-center flex-col">
           <img src="/cover-2.png" alt="cover" className="w-full object-cover sm:h-[450px] h-[320px] rounded-tl-[140px] z-[10] mb-10 relative"></img>
-          {/* <img
-          class="lg:w-2/6 md:w-3/6 w-5/6 mb-10 object-cover object-center rounded"
-          alt="hero"
-          src="https://dummyimage.com/720x600"
-        /> */}
           <div class="text-center lg:w-2/3 w-full">
             <h1 class={`title-font sm:text-5xl text-4xl mb-4 font-medium ${background[paths["mode"]]}`}>
               Pairwise Image Visualizer
