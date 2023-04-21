@@ -2,6 +2,8 @@ import React, { useContext, useState } from 'react'
 import Navbar from './components/Navbar'
 import FolderName from './components/FolderName'
 import FourImg from './components/FourImg'
+import MetricsName from './components/MetricsName'
+import Papa from "papaparse";
 import { spawn } from 'child_process'
 import { ThemeContext } from './App'
 const fs = window.require('fs')
@@ -41,17 +43,39 @@ function ThreeImagesPage() {
         }
       })
     let newImages = []
-    for (let [key, value] of mp) {
-      if (value === 4) {
-        newImages.push([
-          pathModule.join(paths['path41'], key),
-          pathModule.join(paths['path42'], key),
-          pathModule.join(paths['path43'], key),
-          pathModule.join(paths['path44'], key)
-        ])
+    if(paths["metrics"]!=''){
+      fs.readFile(paths["metrics"], 'utf8', function (err, data) {
+          if (err) {
+              throw err;
+          }
+          Papa.parse(data, {
+          step: function (row) {
+            if(row.data==""){
+              setImages(newImages)
+              return
+            }
+            newImages.push([
+              pathModule.join(paths['path41'], row.data[0]),
+              pathModule.join(paths['path42'], row.data[1]),
+              pathModule.join(paths['path43'], row.data[2]),
+              pathModule.join(paths['path44'], row.data[3])
+            ])
+          }
+        });
+      });
+    }else{
+      for (let [key, value] of mp) {
+        if (value === 4) {
+          newImages.push([
+            pathModule.join(paths['path41'], key),
+            pathModule.join(paths['path42'], key),
+            pathModule.join(paths['path43'], key),
+            pathModule.join(paths['path44'], key)
+          ])
+        }
       }
+      setImages(newImages)
     }
-    setImages(newImages)
   }
   return ( 
       <div className='bg-gray-900'>
@@ -66,15 +90,20 @@ function ThreeImagesPage() {
         <FolderName folder="path43"></FolderName>
         <FolderName folder="path44"></FolderName>
       </div>
-      <div className="w-100 flex items-center pb-1 justify-center">
-        <button
-          onClick={clickHandler}
-          class="block text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-emerald-500 dark:text-white dark:border-gray-300 dark:hover:bg-emerald-700 border-2  dark:focus:ring-gray-700"
-          type="button"
-        >
-          Search for Images!!
-        </button>
-      </div>
+      <div className="grid grid-cols-2 gap-2 m-2 w-100 mb-5">
+          <div className="w-100 flex items-center pb-1 justify-center">
+            <button
+              onClick={clickHandler}
+              class="block text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-emerald-500 dark:text-white dark:border-gray-300 dark:hover:bg-emerald-700 border-2  dark:focus:ring-gray-700"
+              type="button"
+            >
+              Search for Images
+            </button>
+          </div>
+          <div className="w-100 flex items-center pb-1 justify-center">
+            <MetricsName folder="metrics"></MetricsName>
+          </div>
+        </div>
       </div>
       <div className="overflow-y-scroll">
         {images.map(arr => {

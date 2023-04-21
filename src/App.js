@@ -18,7 +18,8 @@ function App() {
     path41: app.getAppPath(),
     path42: app.getAppPath(),
     path43: app.getAppPath(),
-    path44: app.getAppPath()
+    path44: app.getAppPath(),
+    metrics: ''
   })
   return (
     <>
