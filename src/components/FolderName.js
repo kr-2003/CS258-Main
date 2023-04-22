@@ -7,6 +7,7 @@ import Typography from '@mui/material/Typography'
 import Modal from '@mui/material/Modal'
 import { FilesViewer } from '../FilesViewer'
 import { ThemeContext } from '../App'
+import { motion } from 'framer-motion'
 
 const fs = window.require('fs')
 const pathModule = window.require('path')
@@ -129,15 +130,21 @@ function FolderName(props) {
         className="focus:outline-none"
       >
         <Box sx={style}>
-          <div
+          <motion.div
+            initial={{ y: 10, scale: 0.8, opacity: 0.4 }}
+            animate={{ y: 0, scale: 1, opacity: 1 }}
+            transition={{ duration: 0.5 }}
             style={{ outline: 'none' }}
             className="container bg-gray-200 border-[16px] rounded-[25px] border-gray-600 py-5 px-5 overflow-y-scroll h-[100%] text-black"
           >
             <div className="pb-2 w-full mx-auto flex justify-between gap-8">
-              <div
+              <motion.div
+                initial={{ y: 10, scale: 0.8, opacity: 0.4 }}
+                animate={{ y: 0, scale: 1, opacity: 1 }}
+                transition={{ duration: 0.5, delay: 0.5 }}
                 className="cross-btn h-7 w-7 absolute top-5 right-5 hover:cursor-pointer"
                 onClick={handleClose}
-              ></div>
+              ></motion.div>
 
               <h2 className="font-semibold text-[18px] leading-[30px] text-gray-900">
                 Browse Folders
@@ -148,9 +155,9 @@ function FolderName(props) {
               files={filteredFiles}
               onBack={onBack}
               onOpen={onOpen}
-              onClickFile={()=>{}}
+              onClickFile={() => {}}
             />
-          </div>
+          </motion.div>
         </Box>
       </Modal>
     </header>
