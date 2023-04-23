@@ -94,7 +94,7 @@ function ThreeImagesPage() {
       </div>
       <div className="h-[100%] text-center">
         <div
-          className={`sticky top-0 bg-gray-900 ${background[paths['mode']]}`}
+          className={`static bg-gray-900 ${background[paths['mode']]}`}
         >
           <div className="grid grid-cols-2 gap-2 m-2 w-100 mb-5">
             <FolderName folder="path41"></FolderName>
