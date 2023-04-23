@@ -10,15 +10,15 @@ const { app } = window.require('@electron/remote')
 
 function App() {
   const [paths, setPaths] = useState({
-    path21: '/Users',
-    path22: '/Users',
-    path31: '/Users',
-    path32: '/Users',
-    path33: '/Users',
-    path41: '/Users',
-    path42: '/Users',
-    path43: '/Users',
-    path44: '/Users',
+    path21: '/',
+    path22: '/',
+    path31: '/',
+    path32: '/',
+    path33: '/',
+    path41: '/',
+    path42: '/',
+    path43: '/',
+    path44: '/',
     metrics: '',
     mode: "Dark"
   })
