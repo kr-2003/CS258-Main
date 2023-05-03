@@ -11,10 +11,14 @@ The system will consist of a software application that can run on Windows, macOS
 # Installation
 To use Pairwise Image Visualizer App, you need to [download](https://drive.google.com/drive/folders/1hRv2dZ9KFbdIczkKXJTVfUltui2aIAdi?usp=share_link) and install the app on your computer. Here are the steps to install the app:
 
-- Go to the Google Drive Folder and select the appropriate build.
+- Go to the [Google Drive Folder](https://drive.google.com/drive/folders/1hRv2dZ9KFbdIczkKXJTVfUltui2aIAdi?usp=share_link) and select the appropriate build.
 - Choose the version of the app that is compatible with your operating system (Windows, macOS, or Linux) and download it.
 - Once the download is complete, double-click on the installation file to install the app.
 
+# Documentation
+- [Proposal](public\ProjectProposal.pdf)
+- [SRS](public\SRS.pdf)
+- [User Guide](public\Documentation.pdf)
 # Build Requirements
 - Any Operating System (ie. MacOS X, Linux, Windows)
 - NodeJS preinstalled
@@ -36,7 +40,7 @@ To use Pairwise Image Visualizer App, you need to [download](https://drive.googl
      - Tailwind CSS is highly customizable, allowing developers to easily modify the default design system and create their own custom utility classes.
      - The framework is lightweight and optimized for performance, with a focus on reducing the size of the final CSS file.
 
-# Build Installation
+# Build Instructions
 - Setup [Visual Studio Code](https://code.visualstudio.com/)
 - Install [Node Version Manager (NVM)](https://www.freecodecamp.org/news/node-version-manager-nvm-install-guide/)
     - NVM allows you to install different versions of Node, and switch between these versions depending on the project that you're working on via the command line.
