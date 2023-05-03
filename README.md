@@ -1,10 +1,21 @@
-# Image-pair broswer and visualiser
-This is a responsive application that visualizes image pairs from multiple folders. The image pairs we refer to are two images with the same name but in different folders. Thee application allows users to select multiple folders, and it displays all the image pairs within those folders. To ensure the application's versatility, there is the option to add more than two folders.
+# Pairwise Image Visualiser
+Pairwise Image Visualizer App is a powerful image viewer that allows you to view images from multiple folders on the screen simultaneously. This app provides a scrolling functionality, which enables you to scroll through your images, and it allows you to open up to four folders at the same time. The app is built using Electron.js and React, making it highly responsive and user-friendly.
 ### Purpose
 The purpose of this software is to open images from multiple folders and visualise them. The images are of the same name and exist in different folders, maybe due to a series of image processing like segmentation, landmark or object detection, or upscaling. This tool would allow the user to visualise such images. 
 ### Project Scope
 The system will consist of a software application that can run on Windows, macOS, and Linux. The application will be responsible for processing directories and images.
 # Requirements
+- Any Operating System (ie. MacOS X, Linux, Windows)
+- 0.2 GB Space
+- 0.5 GB RAM
+# Installation
+To use Pairwise Image Visualizer App, you need to [download](https://drive.google.com/drive/folders/1hRv2dZ9KFbdIczkKXJTVfUltui2aIAdi?usp=share_link) and install the app on your computer. Here are the steps to install the app:
+
+- Go to the Google Drive Folder and select the appropriate build.
+- Choose the version of the app that is compatible with your operating system (Windows, macOS, or Linux) and download it.
+- Once the download is complete, double-click on the installation file to install the app.
+
+# Build Requirements
 - Any Operating System (ie. MacOS X, Linux, Windows)
 - NodeJS preinstalled
 - Any IDE(ie. IntelliJ, Android Studio, VSCode etc)
@@ -25,7 +36,7 @@ The system will consist of a software application that can run on Windows, macOS
      - Tailwind CSS is highly customizable, allowing developers to easily modify the default design system and create their own custom utility classes.
      - The framework is lightweight and optimized for performance, with a focus on reducing the size of the final CSS file.
 
-# Installation
+# Build Installation
 - Setup [Visual Studio Code](https://code.visualstudio.com/)
 - Install [Node Version Manager (NVM)](https://www.freecodecamp.org/news/node-version-manager-nvm-install-guide/)
     - NVM allows you to install different versions of Node, and switch between these versions depending on the project that you're working on via the command line.
@@ -55,4 +66,4 @@ The system will consist of a software application that can run on Windows, macOS
 - [Khushi Agarwal](https://github.com/Khushi724)
 - [Pilla Venkata Sekhar](https://github.com/PVSekhar1234)
 - [Rohit Dhanotia](https://github.com/TechBot505)
-- [Yatharth Gupta]()
+- [Yatharth Gupta](https://github.com/Warlord-K)
